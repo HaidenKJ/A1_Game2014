@@ -54,6 +54,7 @@ public class Enemy : MonoBehaviour
         if (dead) return;
         health -= amount;
         if (health <= 0f) Die();
+        Debug.Log("Enemy taking damage" + health);
     }
 
     void Die()

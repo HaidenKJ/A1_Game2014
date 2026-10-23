@@ -1,17 +1,24 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] float maxHealth = 100f;
-    [SerializeField] Slider healthBar;
-    [SerializeField] string gameOverScene = "GameOver";
+
+    [Header("UI")]
+    [SerializeField] TMP_Text healthText; // show te number
+    [SerializeField] Transform barSquare; // the square that shrinks on X only
+
+    [SerializeField] string gameOverScene = "End";
 
     public float Current { get; private set; }
+
+    Vector3 barStartScale;
 
     void Awake()
     {
         Current = maxHealth;
+        if (barSquare != null) barStartScale = barSquare.localScale;
         UpdateBar();
     }
 
@@ -34,9 +41,16 @@ public class PlayerHealth : MonoBehaviour
 
     void UpdateBar()
     {
-        if (healthBar == null) return;
-        healthBar.minValue = 0f;
-        healthBar.maxValue = maxHealth;
-        healthBar.value = Current;
+        float fraction = Mathf.Clamp01(Current / maxHealth);
+
+        if (barSquare != null)
+        {
+            Vector3 s = barStartScale;
+            s.x = barStartScale.x * fraction; 
+            barSquare.localScale = s;
+        }
+
+        if (healthText != null)
+            healthText.text = Mathf.CeilToInt(Current).ToString();
     }
 }
