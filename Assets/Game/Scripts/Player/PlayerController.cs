@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] Camera cam; 
+    Camera cam; 
     [SerializeField] Transform visual;
 
 
@@ -54,19 +54,21 @@ public class PlayerController : MonoBehaviour
             return;
         }
         if (Input.GetMouseButtonDown(0))
+        {
             ignoredFingerId = (ignoreUITouches && IsOverUI(-1)) ? 0 : -1;
+        }
 
         if (Input.GetMouseButton(0) && ignoredFingerId == -1)
+        {
             SetTarget(Input.mousePosition);
+        }
 
     }
 
     bool IsOverUI(int fingerId)
     {
         if (EventSystem.current == null) return false;
-        return fingerId < 0
-            ? EventSystem.current.IsPointerOverGameObject()
-            : EventSystem.current.IsPointerOverGameObject(fingerId);
+        return fingerId < 0 ? EventSystem.current.IsPointerOverGameObject() : EventSystem.current.IsPointerOverGameObject(fingerId);
     }
 
     void SetTarget(Vector2 screenPos)
