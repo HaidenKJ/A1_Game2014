@@ -1,30 +1,32 @@
 using UnityEngine;
 
-/// <summary>
-/// One script for Walker, Runner (and later Charger). Make a prefab per type and change the stats.
-/// Needs: Collider2D + Rigidbody2D (Body Type: Kinematic) so the beam triggers detect it.
-/// </summary>
 public class Enemy : MonoBehaviour
 {
-    // General enemy damage. Each enemy scales it with its own multiplier.
-    public static float BaseDamage = 5f;
+    public static float BaseDamage = 5f; // General enemy damage. Each enemy scales it with its own multiplier.
 
     [Header("Stats")]
     [SerializeField] float maxHealth = 20f;
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float attackRange = 1f;
-    [SerializeField] float attackInterval = 2f;     // seconds between attacks
-    [SerializeField] float damageMultiplier = 1f;   // final damage = BaseDamage * this
+    [SerializeField] float attackInterval = 2f; // seconds between attacks
+    [SerializeField] float damageMultiplier = 1f;  // final damage = BaseDamage * this
     [SerializeField] int points = 1;
 
     float health;
     float attackTimer;
+
+    public float Health => health;
+    public float MaxHealth => maxHealth;
     bool dead;
     PlayerHealth player;
 
-    void Start()
+    void Awake()
     {
         health = maxHealth;
+    }
+
+    void Start()
+    {
         player = FindFirstObjectByType<PlayerHealth>();
     }
 
@@ -54,7 +56,6 @@ public class Enemy : MonoBehaviour
         if (dead) return;
         health -= amount;
         if (health <= 0f) Die();
-        Debug.Log("Enemy taking damage" + health);
     }
 
     void Die()
