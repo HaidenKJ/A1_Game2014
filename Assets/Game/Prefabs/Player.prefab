@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 7621243980366284818}
   - component: {fileID: 5464384257374713943}
   - component: {fileID: 1786626418352248273}
+  - component: {fileID: 2496894422397459673}
   m_Layer: 0
   m_Name: T3
   m_TagString: Untagged
@@ -233,13 +234,26 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &2496894422397459673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357310306665800958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf0fe6e7aec5e043a191469a325834c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageTier
+  damagePerSecond: 10
 --- !u!1 &421879760806037294
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,6 +1000,7 @@ GameObject:
   - component: {fileID: 8375006850959072080}
   - component: {fileID: 1863601867786573362}
   - component: {fileID: 4625401553849340729}
+  - component: {fileID: 9043040410950331801}
   m_Layer: 0
   m_Name: T4
   m_TagString: Untagged
@@ -1083,13 +1098,26 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &9043040410950331801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452242159389993119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf0fe6e7aec5e043a191469a325834c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageTier
+  damagePerSecond: 10
 --- !u!1 &1527824198132651709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1514,6 +1542,7 @@ GameObject:
   - component: {fileID: 2296332261010561136}
   - component: {fileID: 101546925866024915}
   - component: {fileID: 8234432088388521019}
+  - component: {fileID: 5424247541840514846}
   m_Layer: 0
   m_Name: T2
   m_TagString: Untagged
@@ -1611,13 +1640,26 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &5424247541840514846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2692981607437142018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf0fe6e7aec5e043a191469a325834c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageTier
+  damagePerSecond: 10
 --- !u!1 &2832864654027351830
 GameObject:
   m_ObjectHideFlags: 0
@@ -3448,6 +3490,8 @@ GameObject:
   - component: {fileID: 6291521474573498131}
   - component: {fileID: 463266230589846514}
   - component: {fileID: 1049631453809962384}
+  - component: {fileID: 7876176134317228160}
+  - component: {fileID: 2915378519566440054}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3526,6 +3570,35 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.06, y: 0.2}
   m_Radius: 0.3
+--- !u!114 &7876176134317228160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7044611336700824024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deb98c86c826f5b4caaf2787851ca37f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreManager
+  scoreText: {fileID: 0}
+  secondsPerPoint: 2
+--- !u!114 &2915378519566440054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7044611336700824024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4f104cb95a3a6f4391bfbf092bbf9ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  maxHealth: 100
+  healthBar: {fileID: 0}
+  gameOverScene: GameOver
 --- !u!1 &7116495235995108941
 GameObject:
   m_ObjectHideFlags: 0
@@ -3537,6 +3610,7 @@ GameObject:
   - component: {fileID: 3585408443447743675}
   - component: {fileID: 5917969257979322440}
   - component: {fileID: 5411837154116908707}
+  - component: {fileID: 4008910576208946137}
   m_Layer: 0
   m_Name: T1
   m_TagString: Untagged
@@ -3634,13 +3708,26 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &4008910576208946137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7116495235995108941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf0fe6e7aec5e043a191469a325834c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageTier
+  damagePerSecond: 10
 --- !u!1 &7460059013278902996
 GameObject:
   m_ObjectHideFlags: 0

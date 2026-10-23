@@ -1555,10 +1555,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8187583226296447486}
-  - component: {fileID: 7924691791672370245}
   - component: {fileID: 7879585020909155264}
+  - component: {fileID: 3940557538568880195}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Walker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1580,22 +1580,6 @@ Transform:
   - {fileID: 608222920610085947}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7924691791672370245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6653965704345642775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 319bfcabbafd9b84aa851cabaf6f1937, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  visual: {fileID: 8187583226296447486}
-  turnSpeed: 360
-  spriteAngleOffset: -90
-  ignoreUITouches: 1
 --- !u!58 &7879585020909155264
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1626,12 +1610,30 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.06, y: 0.2}
-  m_Radius: 0.3
+  m_Offset: {x: 0, y: -0.11}
+  m_Radius: 0.4
+--- !u!114 &3940557538568880195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6653965704345642775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaae17f39a557df40babc6298690bda3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  maxHealth: 20
+  moveSpeed: 1
+  attackRange: 1
+  attackInterval: 2
+  damageMultiplier: 1
+  points: 1
 --- !u!1 &7709159694379558792
 GameObject:
   m_ObjectHideFlags: 0
