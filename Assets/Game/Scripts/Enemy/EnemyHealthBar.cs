@@ -18,9 +18,7 @@ public class EnemyHealthBar : MonoBehaviour
     void Update()
     {
         if (enemy == null) return;
-
-        // Only redraw when the displayed number actually changes
-        int shown = Mathf.CeilToInt(enemy.Health);
+        int shown = Mathf.CeilToInt(enemy.Health); // Only will redraw when the displayed number actually changes
         if (shown == lastShown) return;
         lastShown = shown;
 
@@ -29,7 +27,7 @@ public class EnemyHealthBar : MonoBehaviour
         if (barSquare != null)
         {
             Vector3 s = barStartScale;
-            s.x = barStartScale.x * fraction;   // only X changes, Y and Z stay the same
+            s.x = barStartScale.x * fraction; // only X changes, Y and Z stay the same
             barSquare.localScale = s;
         }
     }

@@ -7,9 +7,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float attackRange = 1f;
     [SerializeField] float attackInterval = 2f; // seconds between attacks
-    [SerializeField] float firstAttackDelay = 0.1f; // wait after arriving before the first hit
+    [SerializeField] float firstAttackDelay = 0.3f; // wait after arriving before the first hit
     [SerializeField] float damageMultiplier = 1f;  // final damage = BaseDamage * this
     [SerializeField] int points = 1;
+    [SerializeField] string displayName; // shown on the End screen ("Killed by: Walker")
+    [SerializeField] ParticleSystem deathParticles; // prefab spawned when the beam kills this enemy
 
     float health;
     float attackTimer;
@@ -17,6 +19,8 @@ public class Enemy : MonoBehaviour
 
     public float Health => health;
     public float MaxHealth => maxHealth;
+    public string DisplayName => string.IsNullOrEmpty(displayName) ? gameObject.name.Replace("(Clone)", "").Trim() : displayName;
+
     bool dead;
     PlayerHealth player;
 
@@ -27,7 +31,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        player = FindFirstObjectByType<PlayerHealth>();
+        player = FindAnyObjectByType<PlayerHealth>();
     }
 
     void Update()
@@ -42,7 +46,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            if (!hasArrived) // skip most of the wait so there's no awkward pause on arrival, only once tho
+            if (!hasArrived)
             {
                 hasArrived = true;
                 attackTimer = Mathf.Max(0f, attackInterval - firstAttackDelay);
@@ -52,7 +56,7 @@ public class Enemy : MonoBehaviour
             if (attackTimer >= attackInterval)
             {
                 attackTimer = 0f;
-                player.TakeDamage(BaseDamage * damageMultiplier);
+                player.TakeDamage(BaseDamage * damageMultiplier, DisplayName);
             }
         }
     }
@@ -60,6 +64,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float amount)
     {
         if (dead) return;
+
         health -= amount;
         if (health <= 0f) Die();
     }
@@ -68,6 +73,11 @@ public class Enemy : MonoBehaviour
     {
         dead = true;
         ScoreManager.Add(points);
+        GameAudio.EnemyDeath();
+
+        if (deathParticles != null)
+            Instantiate(deathParticles, transform.position, Quaternion.identity);
+
         Destroy(gameObject);
     }
 }

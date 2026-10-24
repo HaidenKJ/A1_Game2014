@@ -16,7 +16,7 @@ public class EnemyCirlclerType : MonoBehaviour
 
     void Start()
     {
-        player = FindFirstObjectByType<PlayerController>();
+        player = FindAnyObjectByType<PlayerController>();
         myCollider = GetComponent<Collider2D>();
 
         if (player != null)

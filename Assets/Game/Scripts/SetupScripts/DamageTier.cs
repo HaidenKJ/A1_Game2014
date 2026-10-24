@@ -9,7 +9,7 @@ public class DamageTier : MonoBehaviour
         if (enemy != null)
         {
             enemy.TakeDamage(damagePerSecond * Time.deltaTime);
-            Debug.Log(name + " touched " + other.name);
+            GameAudio.BeamContact();
         }
     }
 }
