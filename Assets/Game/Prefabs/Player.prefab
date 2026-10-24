@@ -3652,8 +3652,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.06, y: 0.2}
-  m_Radius: 0.3
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!114 &7876176134317228160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3683,7 +3683,7 @@ MonoBehaviour:
   maxHealth: 100
   healthText: {fileID: 0}
   barSquare: {fileID: 0}
-  gameOverScene: GameOver
+  gameOverScene: End
 --- !u!1 &7116495235995108941
 GameObject:
   m_ObjectHideFlags: 0
