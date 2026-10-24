@@ -1657,7 +1657,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Healer
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2139817368306433502, guid: a3f45060a3222034b817bd3f0db0a566, type: 3}
+    - {fileID: 7884621783632228020, guid: a3f45060a3222034b817bd3f0db0a566, type: 3}
+    - {fileID: 8875139550314886729, guid: a3f45060a3222034b817bd3f0db0a566, type: 3}
+    - {fileID: 520681564486057999, guid: a3f45060a3222034b817bd3f0db0a566, type: 3}
+    - {fileID: 2596224765852075753, guid: a3f45060a3222034b817bd3f0db0a566, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
