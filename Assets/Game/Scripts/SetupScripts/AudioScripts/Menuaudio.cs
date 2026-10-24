@@ -7,7 +7,6 @@ public class MenuAudio : MonoBehaviour
 
     [SerializeField] AudioClip music;
     [SerializeField, Range(0f, 1f)] float musicVolume = 0.5f;
-
     [SerializeField] AudioClip hoverSfx;
     [SerializeField] AudioClip clickSfx;
     [SerializeField, Range(0f, 1f)] float sfxVolume = 0.8f;
@@ -57,7 +56,7 @@ public class MenuAudio : MonoBehaviour
         if (clip == null) return;
 
         GameObject go = new GameObject("OneShotSfx");
-        DontDestroyOnLoad(go);
+        DontDestroyOnLoad(go); // might remove
 
         AudioSource source = go.AddComponent<AudioSource>();
         source.clip = clip;

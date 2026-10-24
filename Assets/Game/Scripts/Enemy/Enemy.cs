@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float firstAttackDelay = 0.3f; // wait after arriving before the first hit
     [SerializeField] float damageMultiplier = 1f;  // final damage = BaseDamage * this
     [SerializeField] int points = 1;
-    [SerializeField] string displayName; // shown on the End screen ("Killed by: Walker")
+    [SerializeField] string displayName; // For displaying killer on end screen
     [SerializeField] ParticleSystem deathParticles; // prefab spawned when the beam kills this enemy
 
     float health;
