@@ -3,17 +3,17 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public static float BaseDamage = 5f; // General enemy damage. Each enemy scales it with its own multiplier.
-
-    [Header("Stats")]
     [SerializeField] float maxHealth = 20f;
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float attackRange = 1f;
     [SerializeField] float attackInterval = 2f; // seconds between attacks
+    [SerializeField] float firstAttackDelay = 0.1f; // wait after arriving before the first hit
     [SerializeField] float damageMultiplier = 1f;  // final damage = BaseDamage * this
     [SerializeField] int points = 1;
 
     float health;
     float attackTimer;
+    bool hasArrived;
 
     public float Health => health;
     public float MaxHealth => maxHealth;
@@ -42,6 +42,12 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            if (!hasArrived) // skip most of the wait so there's no awkward pause on arrival, only once tho
+            {
+                hasArrived = true;
+                attackTimer = Mathf.Max(0f, attackInterval - firstAttackDelay);
+            }
+
             attackTimer += Time.deltaTime;
             if (attackTimer >= attackInterval)
             {

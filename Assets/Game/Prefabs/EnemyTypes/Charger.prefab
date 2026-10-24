@@ -2446,8 +2446,9 @@ MonoBehaviour:
   moveSpeed: 3
   attackRange: 0.5
   attackInterval: 10
+  firstAttackDelay: 0.1
   damageMultiplier: 5
-  points: 10
+  points: 3
 --- !u!114 &7793001406195451127
 MonoBehaviour:
   m_ObjectHideFlags: 0

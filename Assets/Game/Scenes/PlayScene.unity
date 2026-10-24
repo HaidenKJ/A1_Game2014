@@ -3394,7 +3394,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 15
   m_MaskInteraction: 0
   m_Sprite: {fileID: -712631045867808456, guid: b670ab75dde984907b8570040daa08c5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3563,7 +3563,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 60
+  m_SortingOrder: 50
   m_MaskInteraction: 0
   m_Sprite: {fileID: -712631045867808456, guid: b670ab75dde984907b8570040daa08c5, type: 3}
   m_Color: {r: 0.9333334, g: 0.8666667, b: 0.509804, a: 1}
@@ -3757,7 +3757,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1, y: 1.01, z: 1.1}
+  m_LocalScale: {x: 1.1, y: 1.05, z: 1.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1404080995}
@@ -3809,7 +3809,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 20
   m_MaskInteraction: 0
   m_Sprite: {fileID: -712631045867808456, guid: b670ab75dde984907b8570040daa08c5, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
@@ -4161,13 +4161,20 @@ MonoBehaviour:
   entries:
   - prefab: {fileID: 3940557538568880195, guid: c1df0d8c68da0454e97e75830b03bff7, type: 3}
     weight: 50
+    maxAlive: 25
   - prefab: {fileID: 4644077354703015368, guid: 915bc98989b86ed4f9e97a647774e82d, type: 3}
-    weight: 10
+    weight: 1
+    maxAlive: 10
   - prefab: {fileID: 5055212979104618519, guid: ce63fab0c2842224ea6955ddbb95b869, type: 3}
     weight: 25
+    maxAlive: 5
+  - prefab: {fileID: 2929530329042651955, guid: 4453c6fa5fa4cc4469eff38abcaae72c, type: 3}
+    weight: 20
+    maxAlive: 3
   - prefab: {fileID: 1591940278460703856, guid: 52fd85ff0abfa0143b996003cad83860, type: 3}
-    weight: 1
-  spawnInterval: 1
+    weight: 5
+    maxAlive: 5
+  spawnInterval: 2
   extraDistance: 1
 --- !u!1 &2049344951
 GameObject:
@@ -4196,7 +4203,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.1, z: 1.1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 887050975}
@@ -4465,10 +4472,6 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 1443944919}
-    - target: {fileID: 2915378519566440054, guid: eb6b9eafb5d81a947af8e48b33a5eec8, type: 3}
-      propertyPath: gameOverScene
-      value: End
-      objectReference: {fileID: 0}
     - target: {fileID: 6291521474573498131, guid: eb6b9eafb5d81a947af8e48b33a5eec8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
