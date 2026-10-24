@@ -3,9 +3,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] float maxHealth = 100f;
-
-    [Header("UI")]
+    [SerializeField] public float maxHealth = 100f;
     [SerializeField] TMP_Text healthText; // show te number
     [SerializeField] Transform barSquare; // the square that shrinks on X only
 
