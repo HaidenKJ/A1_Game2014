@@ -773,7 +773,7 @@ MonoBehaviour:
   attackRange: 1
   attackInterval: 1
   firstAttackDelay: 0.1
-  damageMultiplier: 5
+  damageMultiplier: 7
   points: 5
 --- !u!114 &2466304443325143913
 MonoBehaviour:

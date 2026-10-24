@@ -85,10 +85,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaae17f39a557df40babc6298690bda3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  maxHealth: 1
-  moveSpeed: 0.2
+  maxHealth: 15
+  moveSpeed: 0.3
   attackRange: 0.8
-  attackInterval: 6
+  attackInterval: 5
   firstAttackDelay: 0.1
   damageMultiplier: 10
   points: 5

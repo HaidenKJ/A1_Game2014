@@ -1574,10 +1574,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   maxHealth: 5
-  moveSpeed: 2
+  moveSpeed: 2.5
   attackRange: 1
-  attackInterval: 1
-  damageMultiplier: 0.5
+  attackInterval: 0.6
+  firstAttackDelay: 0.1
+  damageMultiplier: 1.5
   points: 2
 --- !u!114 &1801908693258410429
 MonoBehaviour:

@@ -4162,7 +4162,7 @@ MonoBehaviour:
   entries:
   - prefab: {fileID: 3940557538568880195, guid: c1df0d8c68da0454e97e75830b03bff7, type: 3}
     weight: 50
-    maxAlive: 25
+    maxAlive: 50
   - prefab: {fileID: 4644077354703015368, guid: 915bc98989b86ed4f9e97a647774e82d, type: 3}
     weight: 1
     maxAlive: 10
@@ -4178,7 +4178,7 @@ MonoBehaviour:
   - prefab: {fileID: 1591940278460703856, guid: 52fd85ff0abfa0143b996003cad83860, type: 3}
     weight: 5
     maxAlive: 5
-  spawnInterval: 2
+  spawnInterval: 1
   extraDistance: 1
 --- !u!1 &2049344951
 GameObject:

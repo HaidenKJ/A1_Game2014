@@ -2445,9 +2445,9 @@ MonoBehaviour:
   maxHealth: 1
   moveSpeed: 3
   attackRange: 0.5
-  attackInterval: 10
+  attackInterval: 1.5
   firstAttackDelay: 0.1
-  damageMultiplier: 5
+  damageMultiplier: 9
   points: 3
 --- !u!114 &7793001406195451127
 MonoBehaviour:
