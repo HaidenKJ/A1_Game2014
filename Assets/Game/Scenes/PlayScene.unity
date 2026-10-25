@@ -119,6 +119,33 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &15064280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7044611336700824024, guid: eb6b9eafb5d81a947af8e48b33a5eec8, type: 3}
+  m_PrefabInstance: {fileID: 2257170521896192457}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &15064286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15064280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fe1321cabf0d71498ffcc3daf71990d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityBeeper
+  beepClip: {fileID: 8300000, guid: 61be10b9d5416ab49b36149440df3eda, type: 3}
+  maxDistance: 6
+  slowInterval: 1
+  fastInterval: 0.08
+  lowPitch: 1
+  highPitch: 2.5
+  volume: 0.4
+  src: {fileID: 0}
+  enemies: []
+  nextBeep: 0
 --- !u!1 &193586934
 GameObject:
   m_ObjectHideFlags: 0
@@ -3956,8 +3983,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e592d3cf0029749bf74e028237ad12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameAudio
-  music: {fileID: 0}
-  musicVolume: 0.4
+  music: {fileID: 8300000, guid: 2b119663f9e0a7044bdd49e457f049a0, type: 3}
+  musicVolume: 0.1
+  maxMusicVolume: 0.9
+  farDistance: 10
+  nearDistance: 2
+  musicSmoothing: 3
   sfxVolume: 0.5
   playerHurtClips:
   - {fileID: 8300000, guid: 8d22696aba3f44c43bd5d768b9ba7c16, type: 3}
@@ -4592,7 +4623,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7044611336700824024, guid: eb6b9eafb5d81a947af8e48b33a5eec8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 15064286}
   m_SourcePrefab: {fileID: 100100000, guid: eb6b9eafb5d81a947af8e48b33a5eec8, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

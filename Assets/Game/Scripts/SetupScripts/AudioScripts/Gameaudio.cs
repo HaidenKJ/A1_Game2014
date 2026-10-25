@@ -3,7 +3,11 @@ public class GameAudio : MonoBehaviour
 {
     public static GameAudio Instance { get; private set; }
     [SerializeField] AudioClip music;
-    [SerializeField, Range(0f, 1f)] float musicVolume = 0.4f;
+    [SerializeField, Range(0f, 1f)] float musicVolume = 0.4f; // baseline (minimum) music volume
+    [SerializeField, Range(0f, 1f)] float maxMusicVolume = 0.9f; // volume when an enemy is right next to the player
+    [SerializeField] float farDistance = 10f; // enemies this far away or more = baseline volume
+    [SerializeField] float nearDistance = 2f;  // enemies this close or closer = max volume
+    [SerializeField] float musicSmoothing = 3f; // higher = volume reacts faster
     [SerializeField, Range(0f, 1f)] float sfxVolume = 0.8f;
     [SerializeField] AudioClip[] playerHurtClips;
     [SerializeField] float enemyHurtInterval = 0.2f;   // beam damage happens every frame, so limiting  the sound rate
@@ -17,6 +21,10 @@ public class GameAudio : MonoBehaviour
     AudioSource musicSource;
     AudioSource sfxSource;
     AudioSource beamSource;
+    PlayerHealth player;
+    float currentMusicVolume;
+    float nearestEnemyDistance = float.MaxValue;
+    float scanTimer;
     float lastBeamContact = -10f;
     bool beamActive;
     int lastPlayerHurtIndex = -1;
@@ -29,6 +37,7 @@ public class GameAudio : MonoBehaviour
 
         musicSource = NewSource(true);
         musicSource.clip = music;
+        currentMusicVolume = musicVolume;
 
         sfxSource = NewSource(false);
 
@@ -48,12 +57,13 @@ public class GameAudio : MonoBehaviour
 
     void Start()
     {
+        player = FindAnyObjectByType<PlayerHealth>();
         if (music != null) musicSource.Play();
     }
 
     void Update()
     {
-        musicSource.volume = musicVolume;
+        UpdateMusicVolume();
         UpdateBeamSound();
     }
 
@@ -62,6 +72,36 @@ public class GameAudio : MonoBehaviour
         if (Instance == this) 
         Instance = null;
     }
+
+    void UpdateMusicVolume()
+    {
+        scanTimer -= Time.deltaTime; // Looking for the closest enemy 10 times a second instead of every frame
+        if (scanTimer <= 0f)
+        {
+            scanTimer = 0.1f;
+            nearestEnemyDistance = FindNearestEnemyDistance();
+        }
+
+        float proximity = Mathf.InverseLerp(farDistance, nearDistance, nearestEnemyDistance); // 0 = far away (baseline volume), 1 = right next to the player (max volume)
+        float target = Mathf.Lerp(musicVolume, maxMusicVolume, proximity);
+
+        currentMusicVolume = Mathf.Lerp(currentMusicVolume, target, musicSmoothing * Time.deltaTime); // Ease toward the target so the volume doesn't jump when an enemy dies
+        musicSource.volume = currentMusicVolume;
+    }
+
+    float FindNearestEnemyDistance()
+    {
+        if (player == null) return float.MaxValue;
+
+        float nearest = float.MaxValue;
+        foreach (Enemy enemy in FindObjectsByType<Enemy>())
+        {
+            float d = Vector2.Distance(enemy.transform.position, player.transform.position);
+            if (d < nearest) nearest = d;
+        }
+        return nearest;
+    }
+
     void UpdateBeamSound()
     {
         if (beamLoopClip == null) return;
@@ -94,7 +134,7 @@ public class GameAudio : MonoBehaviour
         int i = Random.Range(0, pool.Length);
         if (pool.Length > 1 && i == lastIndex)
         {
-            i = (i + Random.Range(1, pool.Length)) % pool.Length;   // never the same clip twice in a row
+            i = (i + Random.Range(1, pool.Length)) % pool.Length; // never the same clip twice in a row
         }
         lastIndex = i;
 
