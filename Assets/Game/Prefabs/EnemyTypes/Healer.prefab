@@ -1142,6 +1142,7 @@ MonoBehaviour:
   firstAttackDelay: 0
   damageMultiplier: 0
   points: 0
+  deathParticles: {fileID: 1268211273131187511, guid: 8360afd65fd4463499b2c937cfb86f5f, type: 3}
 --- !u!114 &2139817368306433502
 MonoBehaviour:
   m_ObjectHideFlags: 0

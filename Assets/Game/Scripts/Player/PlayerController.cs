@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
         if (cam == null) cam = Camera.main;
         if (visual == null) visual = transform;
 
-        ApplyRotation(); // PLayer will start facing up
+        ApplyRotation();
     }
 
     void Update()
@@ -44,10 +44,7 @@ public class PlayerController : MonoBehaviour
                 ignoredFingerId = (ignoreUITouches && IsOverUI(t.fingerId)) ? t.fingerId : -1;
             }
 
-            if (t.fingerId != ignoredFingerId &&
-                (t.phase == TouchPhase.Began ||
-                 t.phase == TouchPhase.Moved ||
-                 t.phase == TouchPhase.Stationary))
+            if (t.fingerId != ignoredFingerId && (t.phase == TouchPhase.Began || t.phase == TouchPhase.Moved || t.phase == TouchPhase.Stationary))
             {
                 SetTarget(t.position);
             }

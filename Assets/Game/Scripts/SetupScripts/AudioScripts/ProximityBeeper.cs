@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ProximityBeeper : MonoBehaviour
+public class ProximityBeeper : MonoBehaviour // yoinked from previous project
 {
     public AudioClip beepClip;
     public float maxDistance = 6f;      // beyond this: slowest, lowest beep
@@ -11,7 +11,7 @@ public class ProximityBeeper : MonoBehaviour
     [Range(0f, 1f)] public float volume = 0.6f;
 
     private AudioSource src;
-    private Obstacle[] enemies;
+    private Enemy[] enemies;
     private float nextBeep;
 
     void Awake()
@@ -22,7 +22,7 @@ public class ProximityBeeper : MonoBehaviour
 
     void Start()
     {
-        enemies = FindObjectsByType<Obstacle>();
+        enemies = FindObjectsByType<Enemy>();
     }
 
     void Update()
@@ -30,7 +30,7 @@ public class ProximityBeeper : MonoBehaviour
         if (Time.time < nextBeep || beepClip == null) return;
 
         float nearest = float.MaxValue;
-        foreach (Obstacle e in enemies)
+        foreach (Enemy e in enemies)
         {
             if (e == null) continue;
             float d = Vector2.Distance(transform.position, e.transform.position);

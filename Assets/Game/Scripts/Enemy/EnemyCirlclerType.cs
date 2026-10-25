@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Enemy))]
-public class EnemyCirlclerType : MonoBehaviour
+public class EnemyCirlclerType : MonoBehaviour // I have spelt the name wrong, and I'm going to commit to it
 {
     [SerializeField] float evadeSpeed = 5f;
     [SerializeField] float safeDistance = 1.5f;   // starts dodging when this close to the beam shape

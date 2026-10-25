@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class EnemyHealthBar : MonoBehaviour
+public class EnemyHealthBar : MonoBehaviour 
 {
     [SerializeField] Enemy enemy; // leave empty to search the parents
     [SerializeField] Transform barSquare; // the square that shrinks on X only
@@ -27,7 +27,7 @@ public class EnemyHealthBar : MonoBehaviour
         if (barSquare != null)
         {
             Vector3 s = barStartScale;
-            s.x = barStartScale.x * fraction; // only X changes, Y and Z stay the same
+            s.x = barStartScale.x * fraction; // only X changes, Y and Z stay the same since 2d
             barSquare.localScale = s;
         }
     }
