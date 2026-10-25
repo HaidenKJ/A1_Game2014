@@ -3944,75 +3944,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1650369431
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1650369433}
-  - component: {fileID: 1650369432}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1650369432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1650369431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9e592d3cf0029749bf74e028237ad12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameAudio
-  music: {fileID: 8300000, guid: 2b119663f9e0a7044bdd49e457f049a0, type: 3}
-  musicVolume: 0.01
-  maxMusicVolume: 0.4
-  farDistance: 10
-  nearDistance: 2
-  musicSmoothing: 3
-  sfxVolume: 0.6
-  playerHurtClips:
-  - {fileID: 8300000, guid: 8d22696aba3f44c43bd5d768b9ba7c16, type: 3}
-  - {fileID: 8300000, guid: 90186db4655b7ce458c4a1d6b36ae759, type: 3}
-  - {fileID: 8300000, guid: 729c68e08cbcd1a469447a05af2f0d6d, type: 3}
-  - {fileID: 8300000, guid: 8f92e7726e3199540adc80b2bb728e50, type: 3}
-  - {fileID: 8300000, guid: 679aa436c79c043449a03f28a913abd3, type: 3}
-  - {fileID: 8300000, guid: 8a59191000cfdf04b88b8bb95151994b, type: 3}
-  - {fileID: 8300000, guid: a41346c2fe6af5a49a1cba1d0effb7ae, type: 3}
-  - {fileID: 8300000, guid: fd4a9e5fae164294c9e3d6079892f37a, type: 3}
-  - {fileID: 8300000, guid: 00dadc4d328eb4f48af509453d8526ef, type: 3}
-  - {fileID: 8300000, guid: 3bf99c304e7e20d438e12d6d899cabd5, type: 3}
-  enemyHurtInterval: 0.2
-  enemyDeathClip: {fileID: 8300000, guid: 17e5233db0bd1aa42b00b5affd94368c, type: 3}
-  healClip: {fileID: 8300000, guid: a46e03ab23f93c148adf64aaeff0fa34, type: 3}
-  beamLoopClip: {fileID: 8300000, guid: 13fd8ca9a9beda74baf2aedeac3dd077, type: 3}
-  beamVolume: 0.2
-  beamFadeTime: 0.15
-  beamHoldTime: 0.15
---- !u!4 &1650369433
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1650369431}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1735650070
 GameObject:
   m_ObjectHideFlags: 0
@@ -4207,6 +4138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1853166526}
   - component: {fileID: 1853166527}
+  - component: {fileID: 1853166528}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4259,13 +4191,53 @@ MonoBehaviour:
     weight: 20
     maxAlive: 3
   - prefab: {fileID: 8875139550314886729, guid: a3f45060a3222034b817bd3f0db0a566, type: 3}
-    weight: 2
+    weight: 3
     maxAlive: 1
+  - prefab: {fileID: 8875139550314886729, guid: 4018d3e39c30cc64e8d68f56f2753b52, type: 3}
+    weight: 1
+    maxAlive: 5
   - prefab: {fileID: 1591940278460703856, guid: 52fd85ff0abfa0143b996003cad83860, type: 3}
     weight: 5
     maxAlive: 5
   spawnInterval: 1
   extraDistance: 1
+--- !u!114 &1853166528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853166525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e592d3cf0029749bf74e028237ad12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameAudio
+  music: {fileID: 8300000, guid: 2b119663f9e0a7044bdd49e457f049a0, type: 3}
+  musicVolume: 0.01
+  maxMusicVolume: 0.4
+  farDistance: 10
+  nearDistance: 2
+  musicSmoothing: 3
+  sfxVolume: 0.6
+  playerHurtClips:
+  - {fileID: 8300000, guid: 8d22696aba3f44c43bd5d768b9ba7c16, type: 3}
+  - {fileID: 8300000, guid: 90186db4655b7ce458c4a1d6b36ae759, type: 3}
+  - {fileID: 8300000, guid: 729c68e08cbcd1a469447a05af2f0d6d, type: 3}
+  - {fileID: 8300000, guid: 8f92e7726e3199540adc80b2bb728e50, type: 3}
+  - {fileID: 8300000, guid: 679aa436c79c043449a03f28a913abd3, type: 3}
+  - {fileID: 8300000, guid: 8a59191000cfdf04b88b8bb95151994b, type: 3}
+  - {fileID: 8300000, guid: a41346c2fe6af5a49a1cba1d0effb7ae, type: 3}
+  - {fileID: 8300000, guid: fd4a9e5fae164294c9e3d6079892f37a, type: 3}
+  - {fileID: 8300000, guid: 00dadc4d328eb4f48af509453d8526ef, type: 3}
+  - {fileID: 8300000, guid: 3bf99c304e7e20d438e12d6d899cabd5, type: 3}
+  enemyHurtInterval: 0.2
+  enemyDeathClip: {fileID: 8300000, guid: 17e5233db0bd1aa42b00b5affd94368c, type: 3}
+  healClip: {fileID: 8300000, guid: a46e03ab23f93c148adf64aaeff0fa34, type: 3}
+  beamLoopClip: {fileID: 8300000, guid: 13fd8ca9a9beda74baf2aedeac3dd077, type: 3}
+  beamVolume: 0.2
+  beamFadeTime: 0.15
+  beamHoldTime: 0.15
 --- !u!1 &2049344951
 GameObject:
   m_ObjectHideFlags: 0
@@ -4626,4 +4598,3 @@ SceneRoots:
   - {fileID: 1615415188}
   - {fileID: 2257170521896192457}
   - {fileID: 465742308}
-  - {fileID: 1650369433}
