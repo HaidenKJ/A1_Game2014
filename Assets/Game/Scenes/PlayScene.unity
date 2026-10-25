@@ -3974,12 +3974,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameAudio
   music: {fileID: 8300000, guid: 2b119663f9e0a7044bdd49e457f049a0, type: 3}
-  musicVolume: 0.1
-  maxMusicVolume: 0.9
+  musicVolume: 0.01
+  maxMusicVolume: 0.4
   farDistance: 10
   nearDistance: 2
   musicSmoothing: 3
-  sfxVolume: 0.5
+  sfxVolume: 0.6
   playerHurtClips:
   - {fileID: 8300000, guid: 8d22696aba3f44c43bd5d768b9ba7c16, type: 3}
   - {fileID: 8300000, guid: 90186db4655b7ce458c4a1d6b36ae759, type: 3}
