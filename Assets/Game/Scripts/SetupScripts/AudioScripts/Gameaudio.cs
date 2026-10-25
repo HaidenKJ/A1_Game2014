@@ -11,8 +11,8 @@ public class GameAudio : MonoBehaviour
     [SerializeField, Range(0f, 1f)] float sfxVolume = 0.8f;
     [SerializeField] AudioClip[] playerHurtClips;
     [SerializeField] float enemyHurtInterval = 0.2f;   // beam damage happens every frame, so limiting  the sound rate
-    [SerializeField] AudioClip[] enemyDeathClips;
-    [SerializeField] AudioClip[] healClips;
+    [SerializeField] AudioClip enemyDeathClip;
+    [SerializeField] AudioClip healClip;
     [SerializeField] AudioClip beamLoopClip;
     [SerializeField, Range(0f, 1f)] float beamVolume = 0.5f;
     [SerializeField] float beamFadeTime = 0.15f;
@@ -28,8 +28,6 @@ public class GameAudio : MonoBehaviour
     float lastBeamContact = -10f;
     bool beamActive;
     int lastPlayerHurtIndex = -1;
-    int lastDeathIndex = -1;
-    int lastHealIndex = -1;
 
     void Awake()
     {
@@ -150,12 +148,14 @@ public class GameAudio : MonoBehaviour
 
     public static void EnemyDeath()
     {
-        if (Instance != null) Instance.PlayRandom(Instance.enemyDeathClips, ref Instance.lastDeathIndex);
+        if (Instance != null && Instance.enemyDeathClip != null)
+            Instance.sfxSource.PlayOneShot(Instance.enemyDeathClip, Instance.sfxVolume);
     }
 
     public static void Heal()
     {
-        if (Instance != null) Instance.PlayRandom(Instance.healClips, ref Instance.lastHealIndex);
+        if (Instance != null && Instance.healClip != null)
+            Instance.sfxSource.PlayOneShot(Instance.healClip, Instance.sfxVolume);
     }
     public static void BeamContact()
     {

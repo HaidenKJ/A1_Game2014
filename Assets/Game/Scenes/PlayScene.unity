@@ -136,16 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fe1321cabf0d71498ffcc3daf71990d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProximityBeeper
-  beepClip: {fileID: 8300000, guid: 61be10b9d5416ab49b36149440df3eda, type: 3}
-  maxDistance: 6
-  slowInterval: 1
-  fastInterval: 0.08
-  lowPitch: 1
-  highPitch: 2.5
-  volume: 0.4
-  src: {fileID: 0}
-  enemies: []
-  nextBeep: 0
 --- !u!1 &193586934
 GameObject:
   m_ObjectHideFlags: 0
@@ -4002,8 +3992,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 00dadc4d328eb4f48af509453d8526ef, type: 3}
   - {fileID: 8300000, guid: 3bf99c304e7e20d438e12d6d899cabd5, type: 3}
   enemyHurtInterval: 0.2
-  enemyDeathClips: []
-  healClips: []
+  enemyDeathClip: {fileID: 8300000, guid: 17e5233db0bd1aa42b00b5affd94368c, type: 3}
+  healClip: {fileID: 8300000, guid: a46e03ab23f93c148adf64aaeff0fa34, type: 3}
   beamLoopClip: {fileID: 8300000, guid: 13fd8ca9a9beda74baf2aedeac3dd077, type: 3}
   beamVolume: 0.2
   beamFadeTime: 0.15
