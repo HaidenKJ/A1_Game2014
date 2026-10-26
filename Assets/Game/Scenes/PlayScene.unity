@@ -4219,7 +4219,7 @@ MonoBehaviour:
   farDistance: 10
   nearDistance: 2
   musicSmoothing: 3
-  sfxVolume: 0.6
+  sfxVolume: 0.7
   playerHurtClips:
   - {fileID: 8300000, guid: 8d22696aba3f44c43bd5d768b9ba7c16, type: 3}
   - {fileID: 8300000, guid: 90186db4655b7ce458c4a1d6b36ae759, type: 3}
