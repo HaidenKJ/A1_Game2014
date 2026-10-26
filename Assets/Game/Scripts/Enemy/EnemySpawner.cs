@@ -5,8 +5,8 @@ using UnityEngine;
 public class SpawnEntry
 {
     public Enemy prefab;
-    public float weight = 1f;   // higher = spawns more often
-    public int maxAlive = 10;   // most of this type allowed on screen at once
+    public float weight = 1f; // higher = spawns more often
+    public int maxAlive = 10; // Adding a cap so 5 billion Stalkers or chargers don't spawn at once
 
     [System.NonSerialized] List<Enemy> alive;
 
@@ -15,7 +15,7 @@ public class SpawnEntry
         get
         {
             if (alive == null) alive = new List<Enemy>();
-            alive.RemoveAll(e => e == null);   // drop enemies that have been destroyed
+            alive.RemoveAll(e => e == null); // drop ememies that have been destroyed
             return alive.Count;
         }
     }
@@ -31,10 +31,10 @@ public class SpawnEntry
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] Camera cam;
+    Camera cam;
     [SerializeField] SpawnEntry[] entries;
     [SerializeField] float spawnInterval = 2f;
-    [SerializeField] float extraDistance = 2f;   // how far past the screen corner to spawn
+    [SerializeField] float extraDistance = 2f; // how far past the screen corner to spawn
 
     float timer;
 
@@ -55,7 +55,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Spawn()
     {
-        // Only types under their specified spawn cap can be picked
+         // Only types under their specified spawn cap can be picked
         float total = 0f;
         SpawnEntry last = null;
         foreach (var e in entries)
@@ -78,7 +78,7 @@ public class EnemySpawner : MonoBehaviour
             }
         }
 
-        SpawnOne(last);   // safety net for floating point rounding
+        SpawnOne(last); // safety net for floating point rounding
     }
 
     void SpawnOne(SpawnEntry entry)
@@ -91,7 +91,7 @@ public class EnemySpawner : MonoBehaviour
     {
         float halfH = cam.orthographicSize;
         float halfW = halfH * cam.aspect;
-        float radius = Mathf.Sqrt(halfW * halfW + halfH * halfH) + extraDistance;
+        float radius = Mathf.Sqrt(halfW * halfW + halfH * halfH) + extraDistance; // MathF always gives me such a headache :(
 
         float angle = Random.value * Mathf.PI * 2f;
         Vector2 dir = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));

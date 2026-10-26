@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Enemy))]
+[RequireComponent(typeof(Enemy))] 
 public class EnemyCirlclerType : MonoBehaviour // I have spelt the name wrong, and I'm going to commit to it
 {
     [SerializeField] float evadeSpeed = 5f;
@@ -49,7 +49,7 @@ public class EnemyCirlclerType : MonoBehaviour // I have spelt the name wrong, a
         if (dist < 0.0001f) return;
         bool inDanger = beam.Distance(myCollider).distance < safeDistance; // Distance from the beam shape to this enemy's collider (negative = inside the beam)
 
-        Vector2 desired = Vector2.zero;   // not evading = no extra movement
+        Vector2 desired = Vector2.zero; // not evading = no extra movement
         if (inDanger)
         {
             Vector2 outward = -toPlayer / dist;                             

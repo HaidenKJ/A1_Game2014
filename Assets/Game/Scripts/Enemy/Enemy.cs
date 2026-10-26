@@ -8,10 +8,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] float attackRange = 1f;
     [SerializeField] float attackInterval = 2f; // seconds between attacks
     [SerializeField] float firstAttackDelay = 0.3f; // wait after arriving before the first hit
-    [SerializeField] float damageMultiplier = 1f;  // final damage = BaseDamage * this
+    [SerializeField] float damageMultiplier = 1f; // final damage = BaseDamage * this
     [SerializeField] int points = 1;
     string displayName; // For displaying killer on end screen
-    [SerializeField] ParticleSystem deathParticles; // prefab spawned when the beam kills this enemy
+    [SerializeField] ParticleSystem deathParticles; //  prefab spawned when the beam kills this enemy
 
     float health;
     float attackTimer;

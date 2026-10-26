@@ -97,11 +97,4 @@ public class PlayerController : MonoBehaviour
         AimDirection = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
         visual.rotation = Quaternion.Euler(0f, 0f, AimAngle + spriteAngleOffset);
     }
-
-    // Draws the aim line in the Scene view
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawRay(transform.position, AimDirection * 3f);
-    }
 }
